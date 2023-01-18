@@ -1,0 +1,101 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+    height: 667px;
+    width: 100%;
+    background-color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header{
+    width: 375px;
+    height: 80px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    padding-left: 22px;
+    padding-right: 21px;
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.header img{
+    height: 53px;
+    width: 75px;
+}
+
+.header ion-icon{
+    font-size: 45px;
+    margin-top: 2px;
+}
+.chat{
+    height: 485px;
+    width: 375px;
+   
+    margin-top: 102px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mensagem-normal, .mensagem-status, .mensagem-reservada{
+    width: 100%;
+    font-size: 14px;
+    margin-top: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    padding-right: 9px;
+    box-sizing: border-box;
+}
+.mensagem-status{
+    background-color: #DCDCDC;
+}
+.mensagem-normal{
+    background-color: #ffffff;
+}
+.mensagem-reservada{
+    background-color: #FFDEDE;
+}
+.nome{
+    font-weight: 700;
+}
+.hora{
+    color: #AAAAAA;
+}
+.barra-mensagem{
+    height: 80px;
+    width: 375px;
+    background-color: #ffffff;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 17px;
+    padding-right: 18px;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0px;
+}
+
+.mensagem{
+    height: 30px;
+    border: none;
+    font-size: 18px;
+    outline: 0;
+}
+.mensagem::placeholder{
+    color: #000000;
+    font-size: 18px;
+}
+.mensagem:placeholder-shown{
+    border: none;
+    font-style: italic;
+}
+.barra-mensagem ion-icon{
+    font-size: 26px;
+}
