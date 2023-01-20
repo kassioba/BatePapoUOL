@@ -2,7 +2,7 @@ let nome = [{ name: prompt("Qual seu nome?") }];
 
 const chat = document.querySelector(".chat");
 
-console.log(nome[0].name);
+
 
 entrarSala();
 
@@ -87,8 +87,43 @@ function sucessoBM(mensagem) {
       chat.innerHTML += mensagemModeloPrivMessage;
     }
   }
+  document.querySelector(".chat").lastChild.scrollIntoView(true);
 }
 console.log(mensagemModeloStatus);
 function falhouBM(a) {
   console.log("buscar mensagens falhou - " + a.data);
+}
+
+let destinatario = "";
+let tipoMensagem = "message";
+
+function enviarMensagem() {
+  const textoEscrito = document.querySelector("input");
+
+  if (destinatario === "") {
+    destinatario = "Todos";
+  }
+
+  console.log(nome);
+  const mensagem = {
+    from: `${nome[0].name}`,
+    to: `${destinatario}`,
+    text: `${textoEscrito.value}`,
+    type: `${tipoMensagem}`,
+  };
+
+  const promessa = axios.post(
+    "https://mock-api.driven.com.br/api/v6/uol/messages",
+    mensagem
+  );
+
+  promessa.then(mensagemEnviada);
+  promessa.catch(mensagemNaoEnviada);
+}
+function mensagemEnviada() {
+  document.querySelector("input").value = "";
+  buscarMensagem();
+}
+function mensagemNaoEnviada() {
+  window.location.reload(forcedReload);
 }

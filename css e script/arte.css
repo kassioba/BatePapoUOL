@@ -1,11 +1,12 @@
 body{
     font-family: 'Roboto', sans-serif;
+    background-color: black;
 }
 
 .container{
     height: 667px;
     width: 100%;
-    background-color: #f3f3f3;
+    background-color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,10 +35,12 @@ body{
     margin-top: 2px;
 }
 .chat{
-    height: 485px;
+    height: 507px;
     width: 375px;
-   
-    margin-top: 102px;
+    background-color: #f3f3f3;
+        margin-top: 80px;
+        padding-top: 22px;
+        box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,8 +83,7 @@ overflow: hidden;
     padding-left: 17px;
     padding-right: 18px;
     box-sizing: border-box;
-    position: fixed;
-    bottom: 0px;
+
 }
 
 .mensagem{
