@@ -65,17 +65,17 @@ function sucessoBM(mensagem) {
   chat.innerHTML = "";
   for (let i = 0; i < mensagem.data.length; i++) {
     mensagemModeloStatus = `
-    <div class="mensagem-status">
+    <div class="mensagem-status" data-test="message">
     <span class="hora">(${mensagem.data[i].time})</span>  <span class="nome">${mensagem.data[i].from}</span>  ${mensagem.data[i].text}
     </div>`;
 
     mensagemModeloMessage = `
-    <div class="mensagem-normal">
+    <div class="mensagem-normal" data-test="message">
     <span class="hora">(${mensagem.data[i].time})</span> <span class="nome">${mensagem.data[i].from}</span> para <span class="nome">${mensagem.data[i].to}</span>:  ${mensagem.data[i].text}
     </div>`;
 
     mensagemModeloPrivMessage = `
-    <div class="mensagem-reservada">
+    <div class="mensagem-reservada" data-test="message">
     <span class="hora">(${mensagem.data[i].time})</span>  <span class="nome">${mensagem.data[i].from}</span> reservadamente para <span class="nome">${mensagem.data[i].to}</span>:  ${mensagem.data[i].text}
     </div>`;
 

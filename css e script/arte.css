@@ -103,3 +103,7 @@ overflow: hidden;
 .barra-mensagem ion-icon{
     font-size: 26px;
 }
+button {
+    border: none;
+    background-color: #ffffff;
+}
