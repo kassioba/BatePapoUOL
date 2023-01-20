@@ -41,6 +41,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+overflow: hidden;
+    overflow-y: scroll;
 }
 .mensagem-normal, .mensagem-status, .mensagem-reservada{
     width: 100%;
