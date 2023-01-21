@@ -1,15 +1,17 @@
 body{
     font-family: 'Roboto', sans-serif;
-    background-color: black;
+    display: flex;
+        justify-content: center;
+        background-color: #000000;
 }
 
 .container{
     height: 667px;
-    width: 100%;
-    background-color: black;
+    width: 375px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 .header{
     width: 375px;
@@ -103,7 +105,128 @@ overflow: hidden;
 .barra-mensagem ion-icon{
     font-size: 26px;
 }
-button {
+.barra-mensagem button {
     border: none;
     background-color: #ffffff;
+}
+.container-bonus {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    display: flex;
+}
+
+.menu {
+    z-index: 2;
+    background-color: #ffffff;
+    height: 100%;
+    width: 259px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fundo {
+    width: 116px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.desativado {
+    display: none;
+}
+
+.header button {
+    border: none;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.header-menu {
+    width: 170px;
+    height: 84px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+}
+
+.todos {
+    width: 100%;
+    height: 36px;
+    margin-top: 4px;
+
+    display: flex;
+    align-items: center;
+}
+
+.todos ion-icon {
+    font-size: 25px;
+    margin-left: 17px;
+}
+
+.texto-menu {
+    margin-left: 7px;
+    color: #000000;
+}
+
+.nome-usuario {
+    margin-left: 7px;
+    color: #000000;
+}
+
+.usuario {
+    width: 100%;
+    height: 36px;
+    margin-top: 1px;
+
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.usuario ion-icon {
+    font-size: 25px;
+    margin-left: 18px;
+}
+
+.header2-menu {
+    width: 100%;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.visibilidade {
+    width: 100%;
+    height: 36px;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.visibilidade ion-icon {
+    font-size: 22px;
+    margin-left: 20px;
+}
+
+.usuarios {
+    width: 100%;
+}
+
+.check {
+    position: absolute;
+    right: 27px;
+    color: #28BB25;
+    display: none;
+}
+
+.ativado {
+    display: inherit;
 }

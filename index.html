@@ -13,15 +13,36 @@
 </head>
 <body>
     <div class="container">
+        <div class="container-bonus desativado">
+            <div class="fundo" onclick="desativarMenu()"></div>
+            <div class="menu">
+                <div class="header-menu">Escolha um contato para enviar mensagem:</div>
+                <div class="todos" onclick='adicionarCheck(this)'>
+                    <ion-icon name="people"></ion-icon>
+                    <div class="texto-menu">Todos</div>
+                    <img src="./ícones/check.png" alt="" class="check ativado">
+                </div>
+                <div class="usuarios"></div>
+                <div class="header2-menu">Escolha a visibilidade:</div>
+                <div class="visibilidade">
+                    <ion-icon name="lock-open"></ion-icon>
+                    <div class="texto-menu">Público</div>
+                </div>
+                <div class="visibilidade">
+                    <ion-icon name="lock-closed"></ion-icon>
+                    <div class="texto-menu">Reservadamente</div>
+                </div>
+            </div>
+        </div>
         <div class="header">
             <img src="./ícones/uol.png" alt="">
-            <ion-icon name="people"></ion-icon>
+            <button onclick="ativarMenu()"><ion-icon name="people"></ion-icon></button>
         </div>
         <div class="chat">
         </div>
         <div class="barra-mensagem">
             <input data-test="input-message" type="text" class="mensagem" placeholder="Escreva aqui...">
-            <button data-test="send-message"><ion-icon name="paper-plane-outline" onclick="enviarMensagem()"></ion-icon></button>
+            <button data-test="send-message" onclick="enviarMensagem()"><ion-icon name="paper-plane-outline"></ion-icon></button>
         </div>
     </div>
   

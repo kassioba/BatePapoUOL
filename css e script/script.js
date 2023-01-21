@@ -20,6 +20,8 @@ function sucesso() {
   setInterval(afirmarPresenca, 5000);
   buscarMensagem();
   setInterval(buscarMensagem, 3000);
+  pegarUsuarios();
+  setInterval(pegarUsuarios, 10000);
 }
 
 function falhou(erro) {
@@ -60,8 +62,6 @@ let mensagemModeloMessage = undefined;
 let mensagemModeloPrivMessage = undefined;
 
 function sucessoBM(mensagem) {
-  console.log(mensagem.data);
-
   chat.innerHTML = "";
   for (let i = 0; i < mensagem.data.length; i++) {
     mensagemModeloStatus = `
@@ -83,15 +83,18 @@ function sucessoBM(mensagem) {
       chat.innerHTML += mensagemModeloStatus;
     } else if (mensagem.data[i].type === "message") {
       chat.innerHTML += mensagemModeloMessage;
-    } else if (mensagem.data[i].type === "private_message") {
+    } else if (
+      mensagem.data[i].type === "private_message" &&
+      mensagem.data[i].to === nome[0].name
+    ) {
       chat.innerHTML += mensagemModeloPrivMessage;
     }
   }
   document.querySelector(".chat").lastChild.scrollIntoView(true);
 }
-console.log(mensagemModeloStatus);
+
 function falhouBM(a) {
-  console.log("buscar mensagens falhou - " + a.data);
+  alert("buscar mensagens falhou - " + a.data);
 }
 
 let destinatario = "";
@@ -104,7 +107,6 @@ function enviarMensagem() {
     destinatario = "Todos";
   }
 
-  console.log(nome);
   const mensagem = {
     from: `${nome[0].name}`,
     to: `${destinatario}`,
@@ -125,5 +127,46 @@ function mensagemEnviada() {
   buscarMensagem();
 }
 function mensagemNaoEnviada() {
-  window.location.reload(forcedReload);
+  window.location.reload();
+}
+
+function pegarUsuarios() {
+  const promessa = axios.get(
+    "https://mock-api.driven.com.br/api/v6/uol/participants"
+  );
+
+  promessa.then(pegarUsuariosSucesso);
+}
+function pegarUsuariosSucesso(usuarios) {
+  const usuariosAtivos = document.querySelector(".usuarios");
+
+  usuariosAtivos.innerHTML = "";
+
+  for (let i = 0; i < usuarios.data.length; i++) {
+    usuariosAtivos.innerHTML += `
+    <div class="usuario" onclick='adicionarCheck(this)'>
+        <ion-icon name="person-circle"></ion-icon>
+        <div class="texto-menu">${usuarios.data[i].name}</div>
+        <img src="./ícones/check.png" alt="" class="check">
+    </div>`;
+  }
+}
+
+function desativarMenu() {
+  document.querySelector(".container-bonus").classList.add("desativado");
+}
+
+function ativarMenu() {
+  document.querySelector(".container-bonus").classList.remove("desativado");
+}
+
+function adicionarCheck(elemento) {
+  console.log(elemento);
+  const ativado = document.querySelector(".ativado");
+  if (ativado !== null) {
+    ativado.classList.remove("ativado");
+    elemento.querySelector(".check").classList.add("ativado");
+  } else {
+    elemento.querySelector(".check").classList.add("ativado");
+  }
 }
