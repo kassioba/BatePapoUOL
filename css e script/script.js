@@ -85,7 +85,8 @@ function sucessoBM(mensagem) {
       chat.innerHTML += mensagemModeloMessage;
     } else if (
       mensagem.data[i].type === "private_message" &&
-      mensagem.data[i].to === nome[0].name
+      (mensagem.data[i].to === nome[0].name ||
+        mensagem.data[i].from === nome[0].name)
     ) {
       chat.innerHTML += mensagemModeloPrivMessage;
     }
@@ -102,6 +103,10 @@ let tipoMensagem = "message";
 
 function enviarMensagem() {
   const textoEscrito = document.querySelector("input");
+
+  if (textoEscrito.value === "") {
+    return;
+  }
 
   if (destinatario === "") {
     destinatario = "Todos";
